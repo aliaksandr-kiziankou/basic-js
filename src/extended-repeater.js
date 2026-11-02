@@ -16,9 +16,22 @@ const { NotImplementedError } = require('../lib');
  *
  */
 
-function repeater(/* str, options */) {
-  // Remove line below and write your code here
-  throw new NotImplementedError('Not implemented');
+function repeater(str, options) {
+  const {
+    repeatTimes,
+    separator = '',
+    addition = '',
+    additionRepeatTimes = 0,
+    additionSeparator = '',
+  } = options;
+
+  const additionStr = Array(additionRepeatTimes)
+    .fill(addition)
+    .join(additionSeparator);
+
+  return Array(repeatTimes)
+    .fill(str + additionStr)
+    .join(separator);
 }
 
 module.exports = {
